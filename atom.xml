@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[guaiTai]]></title>
+  <subtitle><![CDATA[my blog]]></subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="http://enjoychan.github.com/blog/"/>
+  <updated>2015-12-05T10:53:50.671Z</updated>
+  <id>http://enjoychan.github.com/blog/</id>
+  
+  <author>
+    <name><![CDATA[Enjoy Chan-+]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[移动端前端开发单位理解]]></title>
+    <link href="http://enjoychan.github.com/blog/first/"/>
+    <id>http://enjoychan.github.com/blog/first/</id>
+    <published>2014-09-05T06:56:04.000Z</published>
+    <updated>2015-12-05T10:53:50.671Z</updated>
+    <content type="html"><![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br><a id="more"></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br>]]>
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://enjoychan.github.com/blog/tags/CSS/"/>
+    
+      <category term="Mobile" scheme="http://enjoychan.github.com/blog/tags/Mobile/"/>
+    
+      <category term="CSS" scheme="http://enjoychan.github.com/blog/categories/CSS/"/>
+    
+  </entry>
+  
+</feed>
