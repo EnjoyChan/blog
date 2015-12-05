@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://enjoychan.github.com/blog/first/</loc>
-    <lastmod>2015-12-05T10:53:50.671Z</lastmod>
+    <loc>http://enjoychan.github.com/blog/mvvm-vue-avalon/</loc>
+    <lastmod>2015-12-05T12:53:01.455Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://enjoychan.github.com/blog/m-dev-unit/</loc>
+    <lastmod>2015-12-05T12:45:03.004Z</lastmod>
   </url>
   
 </urlset>

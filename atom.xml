@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my blog]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://enjoychan.github.com/blog/"/>
-  <updated>2015-12-05T10:53:50.671Z</updated>
+  <updated>2015-12-05T12:53:01.455Z</updated>
   <id>http://enjoychan.github.com/blog/</id>
   
   <author>
@@ -15,12 +15,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[MVVM--Vue.js vs Avalon.js]]></title>
+    <link href="http://enjoychan.github.com/blog/mvvm-vue-avalon/"/>
+    <id>http://enjoychan.github.com/blog/mvvm-vue-avalon/</id>
+    <published>2014-09-16T12:34:02.000Z</published>
+    <updated>2015-12-05T12:53:01.455Z</updated>
+    <content type="html"><![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br><a id="more"></a><br>待迁移整理</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br>]]>
+    
+    </summary>
+    
+      <category term="JS" scheme="http://enjoychan.github.com/blog/tags/JS/"/>
+    
+      <category term="JS" scheme="http://enjoychan.github.com/blog/categories/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[移动端前端开发单位理解]]></title>
-    <link href="http://enjoychan.github.com/blog/first/"/>
-    <id>http://enjoychan.github.com/blog/first/</id>
+    <link href="http://enjoychan.github.com/blog/m-dev-unit/"/>
+    <id>http://enjoychan.github.com/blog/m-dev-unit/</id>
     <published>2014-09-05T06:56:04.000Z</published>
-    <updated>2015-12-05T10:53:50.671Z</updated>
-    <content type="html"><![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br><a id="more"></a></p>
+    <updated>2015-12-05T12:45:03.004Z</updated>
+    <content type="html"><![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br><a id="more"></a><br>待迁移整理</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br>]]>
