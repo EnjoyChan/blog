@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my blog]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://enjoychan.github.com/blog/"/>
-  <updated>2016-01-04T22:14:16.000Z</updated>
+  <updated>2016-01-06T17:36:07.000Z</updated>
   <id>http://enjoychan.github.com/blog/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://enjoychan.github.com/blog/mvvm-vue-avalon/"/>
     <id>http://enjoychan.github.com/blog/mvvm-vue-avalon/</id>
     <published>2015-09-16T12:34:02.000Z</published>
-    <updated>2016-01-04T22:14:16.000Z</updated>
-    <content type="html"><![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br><a id="more"></a><br>待迁移整理</p>
+    <updated>2016-01-06T17:36:07.000Z</updated>
+    <content type="html"><![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br><a id="more"></a><br>从Vue.js过渡到使用Avalon.js 表示无压力，相似度很高</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br>]]>
