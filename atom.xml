@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my blog]]></subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   <link href="http://enjoychan.github.com/blog/"/>
-  <updated>2016-01-06T17:36:07.000Z</updated>
+  <updated>2016-02-21T14:12:24.000Z</updated>
   <id>http://enjoychan.github.com/blog/</id>
   
   <author>
@@ -15,15 +15,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[meta viewport研究]]></title>
+    <link href="http://enjoychan.github.com/blog/mobile-meta-viewport/"/>
+    <id>http://enjoychan.github.com/blog/mobile-meta-viewport/</id>
+    <published>2015-10-21T07:36:04.000Z</published>
+    <updated>2016-02-21T14:12:24.000Z</updated>
+    <content type="html"><![CDATA[<p>最近对一些东西有些困惑，而这些困惑正源于对viewport的不了解，于是好好的学习了下，本篇文章重在讲移动端的viewport，当然移动端的viewport知识基于pc浏览器的viewport知识。<br>很多移动前端开发都经常用到<code>&lt;meta name=&quot;viewport&quot;
+ content＝“width＝device－width,initial-scale=1,minimum-scale=1,maximum-scale=1”&gt;</code>,这里姑且不讨论<code>user－scalable=no</code>是否不应该限制，所以这里没把这个带上。<a id="more"></a><br> content带的值都是一对对name＝value，总共有6种name，width/height/initial-scale/minimum-scale/maximum-scale,这6个name对应的值是怎么理解的呢？像＊-scale，他们的value是以什么为基准，<code>width=device-width</code>,这个device－width又是什么的宽度呢？</p>
+<h2 id="PC_u6D4F_u89C8_u5668_u7684viewport"><a href="#PC_u6D4F_u89C8_u5668_u7684viewport" class="headerlink" title="PC浏览器的viewport"></a> PC浏览器的viewport</h2><p> 这里大概说一下pc的viewport吧，pc的浏览器页面只有一个viewport。我们知道块元素（div、p…)默认宽度跟父元素一样宽，而document的根元素是html，当它的宽度设置为100%的时候，这个100%正是基于viewport，viewport不可设置大小，它的大小跟浏览器大小有关，可以用<code>document.documentElement.clientWidth／Height</code>获得viewport的大小，<code>document.documentElement.offsetWidth/Height</code>获得html的大小，若想进一步了解可阅读该<a href="http://www.quidurksmode.org/mobile/viewports.html" target="_blank" rel="external">文章 </a>。</p>
+<h2 id="u79FB_u52A8_u7AEF_u6D4F_u89C8_u5668_u6709_u4E09_u4E2Aviewport"><a href="#u79FB_u52A8_u7AEF_u6D4F_u89C8_u5668_u6709_u4E09_u4E2Aviewport" class="headerlink" title="移动端浏览器有三个viewport"></a> 移动端浏览器有三个viewport</h2><p> 移动端浏览器有三个viewport，<code>layout viewport</code>/<code>visual viewport</code>/<code>ideal viewport</code>。<br> 这三种viewport的单位都是css像素单位</p>
+<ol>
+<li><p>layout viewport, 浏览器用于布局的基准，是css布局的基准，例如width: 100%; 这个100%基于layout viewport的宽度，我觉得可以将layout viewport跟pc的viewport对应。viewport meta里面的widht／height正是用来设置layout viewport的大小的,layout viewport只能通过viewport meta来设置大小，当没有设置大小的时候，大多数手机（ios全是）默认宽度是980px（css像素），可以用<code>document.documentElement.clientWidth/height</code>获得layout viewport的大小，而html的大小跟pc一样用offsetWidth／Height。</p>
+</li>
+<li><p>visual viewport，顾名思义就是用户所能看到的视口，比如，在scale=1的时候，iphone5s的visual viewport宽度等于320px；当缩放的时候，我们能看到的视口像素是320px＊scale，也就是说当缩放操作的时候，其实缩放的是像素的大小，当放大的时候，一个像素的大小也放大了，屏幕能容纳的像素个数变小了，自然visual viewport也变小了。<a href="https://twitter.com/ppk" target="_blank" rel="external">Peter-Paul Koch</a>说可以用<code>window.innerWidth/Height</code>度量visual viewport的大小，然而当我用iphone设备和小米手机去测试的时候发现并不准确，window.innerWidth/Height不随scale而变化，当文档里有个元素设置特别宽，溢出html且html不设置overflow：hidden，window.innerWidth等于这个溢出元素的宽度，所以我保留意见，我也没找到能准确测试visual viewport大小的api。</p>
+</li>
+<li><p>ideal viewport，link Peter-Paul Koch的定义是能确保一个最好的体验，是一个理想化的viewport。这么说肯定一头雾水，来举个例子，iphone3物理像素320px＊480px，ideal vieport＝ 320px＊480px；iphone4物理像素640px＊960px，ideal vieport＝ 320px＊480px；也就是<code>ideal viewport = 设备物理像素（分辨率／<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="external">设备像素比</a></code>。说回上面的问题，viewport meta的width=device-width,这里的device－width=ideal viewport；＊－scale的value的基准是ideal viewport，换句话说假如iphone4设置initial－scale＝1.2，则visual viewport width＝ ideal viewport width／1.2，layout viewport大小不变，ideal viewport大小不变。ideal viewport大小可以用screen.width/height度量。</p>
+</li>
+</ol>
+<p>本文参考文章：<br><a href="http://www.quirksmode.org/mobile/metaviewport/" target="_blank" rel="external">Meta viewport</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近对一些东西有些困惑，而这些困惑正源于对viewport的不了解，于是好好的学习了下，本篇文章重在讲移动端的viewport，当然移动端的viewport知识基于pc浏览器的viewport知识。<br>很多移动前端开发都经常用到<code>&lt;meta name=&quot;viewport&quot;
+ content＝“width＝device－width,initial-scale=1,minimum-scale=1,maximum-scale=1”&gt;</code>,这里姑且不讨论<code>user－scalable=no</code>是否不应该限制，所以这里没把这个带上。]]>
+    
+    </summary>
+    
+      <category term="Mobile" scheme="http://enjoychan.github.com/blog/tags/Mobile/"/>
+    
+      <category term="Mobile" scheme="http://enjoychan.github.com/blog/categories/Mobile/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[MVVM--Vue.js vs Avalon.js]]></title>
     <link href="http://enjoychan.github.com/blog/mvvm-vue-avalon/"/>
     <id>http://enjoychan.github.com/blog/mvvm-vue-avalon/</id>
     <published>2015-09-16T12:34:02.000Z</published>
-    <updated>2016-01-06T17:36:07.000Z</updated>
-    <content type="html"><![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br><a id="more"></a><br>从Vue.js过渡到使用Avalon.js 表示无压力，相似度很高</p>
+    <updated>2016-02-21T14:56:11.000Z</updated>
+    <content type="html"><![CDATA[<p>出于最近开发的项目交互逻辑比较复杂-从后台提供的接口读取一个树形结构的json问卷数据，在后台提供的另一个接口上读取问题的答案，我要做的事情是，</p>
+<ol>
+<li>遍历问题，遍历问题的答案，将对应的问题的答案跟问题匹配上</li>
+<li>将带有答案的问题根据问题的类型用相应的html结构渲染到页面，比如input、textarea、checkbox<a id="more"></a></li>
+</ol>
+<p>考虑到用户对这些表单元素的操作，最后要将用户操作的结果－问题以及问题的答案，返回给后台，决定用MVVM框架来做，可以把问题的操作事件，用mvvm框架的语法写进html里。<br>因为问题下有子问题，字问题根据父问题的答案而显示或隐藏，比如父问题是个radio类型的，假如选中了一个项，子问题就会显示出来让用户填写，这种交互按理说用MVVM框 架做无压力，因为双向绑定，当前台数据变化的时候，可以牵扯另一个数据变化，从而控制字问题的显示问题，而MVVM这种实现原理不外乎利用es5里object的define property，使用属性的getter方法和setter方法，然而当数据复杂的时候－字问题下又有字问题的时候，是否能及时正确反应？项目做得很赶，我选了Vue.js来做，因为以前用过，虽然现在的Vue.js变化好多，变得比以前更好，但是还是可以用回以前用的版本，虽说Angular.js也用过，但毕竟太重，不适合我们这个项目－一个逻辑复杂的页面。所幸从后台读取的问题数据结构嵌套不是很深，项目做完了没有什么问题，然而过了一个星期，产品经理告诉我要兼容ie8！！！ 样式兼容ie8是没什么问题咧，然而Vue.js只兼容到ie9，于是乎，只能考虑用Avalon.js，传说中可以兼容到ie6，国内前端大神开发的。我抓紧时间学习了avalon.js,学习文档清晰易懂，语法跟Vue.js差不多，容易上手。现在项目做完，总结遇到的问题，比较下这两个框架。（待续）</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>出于最近开发的项目交互逻辑比较复杂，用了Vue.js去开发，后来产品说要兼容ie8，然而Vue.js兼容ie9+，于是把项目迁到avalon.js去，在此想总结下自己的使用心得<br>]]>
+    <![CDATA[<p>出于最近开发的项目交互逻辑比较复杂-从后台提供的接口读取一个树形结构的json问卷数据，在后台提供的另一个接口上读取问题的答案，我要做的事情是，</p>
+<ol>
+<li>遍历问题，遍历问题的答案，将对应的问题的答案跟问题匹配上</li>
+<li>将带有答案的问题根据问题的类型用相应的html结构渲染到页面，比如input、textarea、checkbox]]>
     
     </summary>
     
@@ -37,12 +77,18 @@
     <title><![CDATA[移动端前端开发单位理解]]></title>
     <link href="http://enjoychan.github.com/blog/m-dev-unit/"/>
     <id>http://enjoychan.github.com/blog/m-dev-unit/</id>
-    <published>2014-09-05T06:56:04.000Z</published>
-    <updated>2016-01-04T22:14:14.000Z</updated>
-    <content type="html"><![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br><a id="more"></a><br>待迁移整理</p>
+    <published>2015-08-05T06:56:04.000Z</published>
+    <updated>2016-02-21T11:47:03.000Z</updated>
+    <content type="html"><![CDATA[<p>移动端页面开发的时候，为什么设计师给我的尺寸宽度是640px,而我总是把psd文件里测量的宽度高度除以2，再写进css的width和height里(公司触屏网站主要考虑兼容retina屏幕，<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="external">设备像素比</a>为2的移动设备)？<br><a id="more"></a><br>当带有retina的高分辨率的屏幕设备刚出的时候，有人疑虑前端要怎么做重构才能兼容普通屏幕的设备和高分辨率的设备，是不是在普通屏幕设置的字体为12px，在retina屏幕（设备像素比为2）设置的字体应为24px， <a href="http://stackoverflow.com/questions/12058574/pixel-density-retina-display-and-font-size-in-css" target="_blank" rel="external">stackoverflow</a>里面Rich Bradshaw的回答<br><blockquote><p>For fonts, SVG, CSS box shadows, gradients and any other CSS drawn stuff, it’s all good. Those things look awesome without any extra work. (Hence why we’ve been pushing towards everything in CSS for a while.)</p>
+<p>For bitmaps (i.e. pngs, jpgs, gifs), all you need to do is provide the image with 2x the resolution, but size it the same as normal.</p>
+<p>As an example, if your page had an image that was 100px by 100px, you’d provide an image that was 200px by 200px, but specify in CSS or as an attribute in HTML that it is 100px by 100px.</p>
+</blockquote><br>总而言之就是，除了图片这种自带像素的要特殊处理外，其它如font size／width／ height等只需如同在普通屏幕一样，因为设备在渲染页面的时候会自动将css像素乘以系数（设备像素比），转成设备像素（物理像素）。<br>那什么是分辨率？屏幕的分辨率和图像的分辨率是一样的吗？css的度量像素／设备像素／设备无关像素这些单位又有什么关系？</p>
+<h2 id="u5C4F_u5E55_u7684_u5206_u8FA8_u7387_u8DDF_u56FE_u50CF_u7684_u5206_u8FA8_u7387_u4E0D_u662F_u4E00_u4E2A_u6982_u5FF5"><a href="#u5C4F_u5E55_u7684_u5206_u8FA8_u7387_u8DDF_u56FE_u50CF_u7684_u5206_u8FA8_u7387_u4E0D_u662F_u4E00_u4E2A_u6982_u5FF5" class="headerlink" title="屏幕的分辨率跟图像的分辨率不是一个概念"></a>屏幕的分辨率跟图像的分辨率不是一个概念</h2><p>在维基百科上搜分辨率可以知道，屏幕分辨率指最多能显示多少像素，而图像分辨率指单位尺寸中所包含的像素个数，像iphone5s，分辨率640px＊1136px，指屏幕可见区域横向最多能显示640个像素，竖向最多能显示1136个像素，也称物理像素；至于图像的分辨率，开发者用到的地方几乎没有，然而我们要关注图像的大小，查看图像详细信息的时候我们可以知道图像的大小（单位：像素）。在retina的屏幕（这里指设备像素比为2），为什么100px＊100px（css像素）的图片布局要用实际大小为200px＊200px的图片去布局？上面说道，‘设备在渲染页面的时候会自动将css像素乘以系数（设备像素比），转成设备像素’，那么100px＊100px的css像素布局就会转成200px＊200px的设备像素，这样200px＊200px图片的每个像素的颜色跟设备里200px＊200px（设备像素）区域的设备像素一个一个对应上，才能保证图片的清晰，否则，用小size的图片的话，设备指定装载图片的区域会因为多余的像素没能跟图片的像素对应上而出现模糊的颜色渲染，导致图片的不清晰。</p>
+<h2 id="css_u50CF_u7D20_uFF0A_u8BBE_u5907_u50CF_u7D20_u6BD4__uFF1D__u8BBE_u5907_u50CF_u7D20_uFF08_u7269_u7406_u50CF_u7D20_uFF09"><a href="#css_u50CF_u7D20_uFF0A_u8BBE_u5907_u50CF_u7D20_u6BD4__uFF1D__u8BBE_u5907_u50CF_u7D20_uFF08_u7269_u7406_u50CF_u7D20_uFF09" class="headerlink" title="css像素＊设备像素比 ＝ 设备像素（物理像素）"></a>css像素＊设备像素比 ＝ 设备像素（物理像素）</h2><p>这里的css像素在不同的系统中可能称呼会不同，ios称为pt（point），Android称为DP／DIP（device independent pixel）。对于屏幕像素密度，ios用ppi（pixel per inch）, Android用传统的印刷行业用的单位dpi（dot per inch），虽然名称不同，但表示的都是一个概念。举例，一个div（style＝“width: 200px; height: 200px;”）,ios表示为200pt＊200pt（Android为dp）， 然后乘以设备像素比得到设备像素。这里有个特别，iphone 6plus的设备像素比虽然为3，但是它的渲染有点不一样，参看这条<a href="http://www.paintcodeapp.com/news/iphone-6-screens-demystified" target="_blank" rel="external">链接</a>，6 plus将pt乘以设备像素比之后还要再做一次运算才转成设备像素。</p>
+<p>本文参考文章：<br><a href="http://div.io/topic/1092?from=timeline&isappinstalled=0#rd&sukey=014c68f407f2d3e173499359496daa35dea2298b45be6d772b688873893c794d0f00b509835da731a9c29d28e2727d49" target="_blank" rel="external">移动端高清、多屏适配方案</a><br><a href="https://www.smashingmagazine.com/2012/08/towards-retina-web/" target="_blank" rel="external">Towards A Retina Web</a><br><a href="http://developer.android.com/guide/practices/screens_support.html" target="_blank" rel="external">安卓开发手册</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>开发移动端页面，接触了许多单位概念，譬如px/dpi/ppi/pt/…<br>]]>
+    <![CDATA[<p>移动端页面开发的时候，为什么设计师给我的尺寸宽度是640px,而我总是把psd文件里测量的宽度高度除以2，再写进css的width和height里(公司触屏网站主要考虑兼容retina屏幕，<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/">设备像素比</a>为2的移动设备)？<br>]]>
     
     </summary>
     
